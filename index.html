@@ -430,11 +430,11 @@ function getFilteredRows() {
 
 function renderSummary() {
   const rows = activeBrand === 'ALL' ? allRows : allRows.filter(r=>r.brand===activeBrand);
-  const rev = rows.reduce((a,r)=>a+(r.pendapatan||0),0);
-  const sales = rows.reduce((a,r)=>a+(r.penjualan||0),0);
-  const views = rows.reduce((a,r)=>a+(r.ditonton||0),0);
-  const roasRows = rows.filter(r=>r.roas>0);
-  const avgRoas = roasRows.length ? roasRows.reduce((a,r)=>a+r.roas,0)/roasRows.length : 0;
+  const rev = rows.reduce((a,r)=>a+(parseFloat(r.pendapatan)||0),0);
+  const sales = rows.reduce((a,r)=>a+(parseInt(r.penjualan)||0),0);
+  const views = rows.reduce((a,r)=>a+(parseInt(r.ditonton)||0),0);
+  const roasRows = rows.filter(r=>parseFloat(r.roas)>0);
+  const avgRoas = roasRows.length ? roasRows.reduce((a,r)=>a+(parseFloat(r.roas)||0),0)/roasRows.length : 0;
   document.getElementById('stat-revenue').textContent = fmtRp(rev);
   document.getElementById('stat-revenue-sub').textContent = `dari ${rows.length} video`;
   document.getElementById('stat-sales').textContent = fmtNum(sales);
@@ -488,7 +488,7 @@ function renderTable() {
 
   document.getElementById('table-body').innerHTML = rows.map(r => {
     const c = getBrandColor(r.brand);
-    const roas = r.roas || 0;
+    const roas = parseFloat(r.roas) || 0;
     const roasCls = roas===0?'roas-none':roas>=3?'roas-good':roas>=2?'roas-mid':'roas-low';
     const roasLabel = roas===0?'Organik':roas.toFixed(2)+'x';
     const desc = r.deskripsi || '';
@@ -676,6 +676,7 @@ function closeModal() {
 // UTILS
 // ============================================================
 function fmtRp(n) {
+  n = parseFloat(n) || 0;
   if (!n || n===0) return '—';
   if (n>=1e9) return 'Rp '+(n/1e9).toFixed(1)+'M';
   if (n>=1e6) return 'Rp '+(n/1e6).toFixed(1)+'jt';
@@ -683,9 +684,10 @@ function fmtRp(n) {
   return 'Rp '+n.toFixed(0);
 }
 function fmtNum(n) {
+  n = parseFloat(n) || 0;
   if (n>=1e6) return (n/1e6).toFixed(1)+'M';
   if (n>=1e3) return (n/1e3).toFixed(0)+'K';
-  return String(n||0);
+  return String(Math.round(n));
 }
 function showLoading(txt='Memuat...') {
   document.getElementById('loading-text').textContent = txt;
