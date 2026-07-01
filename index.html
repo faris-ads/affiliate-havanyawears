@@ -385,13 +385,14 @@ function renderSidebar() {
     const c = getBrandColor(b);
     const count = allRows.filter(r=>r.brand===b).length;
     const isActive = activeBrand === b;
+    const safeB = encodeURIComponent(b);
     html += `<div style="display:flex;align-items:center">
-      <button class="brand-btn ${isActive?'active':''}" onclick="selectBrand('${b.replace(/'/g,"\\'")}'))" style="flex:1${isActive?`;background:${c.bg}`:''}">
+      <button class="brand-btn ${isActive?'active':''}" data-brand="${safeB}" onclick="selectBrandFromAttr(this)" style="flex:1${isActive?`;background:${c.bg}`:''}">
         <span class="brand-dot" style="background:${c.dot}"></span>
         <span class="brand-name-label" style="${isActive?`color:${c.text}`:''}"> ${b}</span>
         <span class="brand-count">${count}</span>
       </button>
-      <button class="remove-btn" onclick="confirmDelete('${b.replace(/'/g,"\\'")}'))" title="Hapus toko">
+      <button class="remove-btn" data-brand="${safeB}" onclick="confirmDeleteFromAttr(this)" title="Hapus toko">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>`;
@@ -401,6 +402,14 @@ function renderSidebar() {
   const pct = Math.min(100, (brands.length / MAX_STORES * 100)).toFixed(0);
   document.getElementById('store-fill').style.width = pct + '%';
   document.getElementById('store-limit-text').textContent = `${brands.length} dari ${MAX_STORES} toko`;
+}
+
+function selectBrandFromAttr(el) {
+  selectBrand(decodeURIComponent(el.dataset.brand));
+}
+
+function confirmDeleteFromAttr(el) {
+  confirmDelete(decodeURIComponent(el.dataset.brand));
 }
 
 function selectBrand(brand) {
