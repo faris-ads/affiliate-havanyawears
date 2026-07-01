@@ -8,37 +8,20 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f7f6f3;
-  --surface:#ffffff;
-  --surface2:#f0efe9;
-  --border:#e4e3dc;
-  --text:#1a1916;
-  --text2:#6b6960;
-  --text3:#9e9d96;
-  --accent:#e8441a;
-  --accent-soft:#fdf0ec;
-  --teal:#0e9474;
-  --teal-soft:#e6f5f1;
-  --blue:#2563eb;
-  --blue-soft:#eff4fe;
-  --amber:#c67c0a;
-  --amber-soft:#fef7e8;
-  --green:#2d7a22;
-  --green-soft:#edf6eb;
-  --purple:#6f3fb5;
-  --purple-soft:#f3eeff;
-  --pink:#b5387a;
-  --pink-soft:#fde9f3;
-  --font:'DM Sans',sans-serif;
-  --mono:'DM Mono',monospace;
-  --r:10px;
-  --r-lg:16px;
+  --bg:#f7f6f3;--surface:#fff;--surface2:#f0efe9;--border:#e4e3dc;
+  --text:#1a1916;--text2:#6b6960;--text3:#9e9d96;
+  --accent:#e8441a;--accent-soft:#fdf0ec;
+  --teal:#0e9474;--teal-soft:#e6f5f1;
+  --blue:#2563eb;--blue-soft:#eff4fe;
+  --amber:#c67c0a;--amber-soft:#fef7e8;
+  --green:#2d7a22;--green-soft:#edf6eb;
+  --purple:#6f3fb5;--pink:#b5387a;--pink-soft:#fde9f3;
+  --font:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
+  --r:10px;--r-lg:16px;
 }
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.5}
-/* Scrollbar */
-::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
-/* Layout */
 .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
 .sidebar{background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
 .main{overflow-x:hidden}
@@ -48,29 +31,29 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .logo{display:flex;align-items:center;gap:10px;margin-bottom:4px}
 .logo-icon{width:34px;height:34px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .logo-icon svg{width:18px;height:18px;fill:#fff}
-.logo-text{font-size:16px;font-weight:600;letter-spacing:-0.3px;color:var(--text)}
+.logo-text{font-size:16px;font-weight:600;letter-spacing:-0.3px}
 .logo-sub{font-size:12px;color:var(--text3);margin-left:44px}
 .sidebar-section{padding:16px 12px 8px;border-bottom:1px solid var(--border)}
 .sidebar-section-title{font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.8px;padding:0 8px;margin-bottom:8px}
-.brand-btn{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--r);cursor:pointer;transition:all 0.15s;border:none;background:none;width:100%;text-align:left;position:relative}
+.brand-btn{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--r);cursor:pointer;transition:all 0.15s;border:none;background:none;width:100%;text-align:left}
 .brand-btn:hover{background:var(--surface2)}
 .brand-btn.active{background:var(--accent-soft)}
 .brand-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;transition:transform 0.15s}
 .brand-btn.active .brand-dot{transform:scale(1.3)}
-.brand-name{font-size:13.5px;font-weight:500;color:var(--text);flex:1}
+.brand-name-label{font-size:13.5px;font-weight:500;color:var(--text);flex:1}
+.brand-btn.active .brand-name-label{color:var(--accent)}
 .brand-count{font-size:11px;color:var(--text3);background:var(--surface2);padding:2px 7px;border-radius:20px;font-family:var(--mono)}
-.brand-btn.active .brand-name{color:var(--accent)}
 .all-btn .brand-dot{background:var(--text)}
 .sidebar-footer{padding:12px;margin-top:auto;border-top:1px solid var(--border)}
-.upload-area{border:1.5px dashed var(--border);border-radius:var(--r-lg);padding:16px;text-align:center;cursor:pointer;transition:all 0.2s;background:transparent}
+.upload-area{border:1.5px dashed var(--border);border-radius:var(--r-lg);padding:14px;text-align:center;cursor:pointer;transition:all 0.2s;background:transparent}
 .upload-area:hover{border-color:var(--accent);background:var(--accent-soft)}
 .upload-area input{display:none}
-.upload-icon{font-size:20px;margin-bottom:6px}
+.upload-icon{font-size:20px;margin-bottom:4px}
 .upload-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
 .upload-sub{font-size:11px;color:var(--text3)}
-.store-limit{font-size:11px;color:var(--text3);text-align:center;margin-top:8px}
-.store-count-bar{background:var(--surface2);border-radius:20px;height:4px;margin:6px 0 2px;overflow:hidden}
+.store-count-bar{background:var(--surface2);border-radius:20px;height:4px;margin:8px 0 2px;overflow:hidden}
 .store-count-fill{background:var(--accent);height:100%;border-radius:20px;transition:width 0.3s}
+.store-limit{font-size:11px;color:var(--text3);text-align:center;margin-top:4px}
 
 /* Main header */
 .main-header{padding:28px 32px 20px;border-bottom:1px solid var(--border);background:var(--surface);display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -82,21 +65,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 select{padding:7px 12px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-family:var(--font);font-size:13px;color:var(--text);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6960' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;transition:border-color 0.15s}
 select:hover{border-color:var(--text3)}
 select:focus{outline:none;border-color:var(--accent)}
-.sort-dir{padding:7px 12px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-family:var(--font);font-size:13px;color:var(--text);cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.sort-dir{padding:7px 12px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-family:var(--font);font-size:13px;color:var(--text);cursor:pointer;transition:all 0.15s}
 .sort-dir:hover{background:var(--surface2)}
 
-/* Summary cards */
+/* Summary */
 .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px 32px}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;transition:box-shadow 0.15s}
 .stat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.06)}
 .stat-label{font-size:11.5px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
-.stat-value{font-size:22px;font-weight:600;letter-spacing:-0.5px;color:var(--text)}
+.stat-value{font-size:22px;font-weight:600;letter-spacing:-0.5px}
 .stat-sub{font-size:12px;color:var(--text2);margin-top:2px}
 
 /* Table */
 .table-wrap{padding:0 32px 32px}
 .table-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
-.table-title{font-size:14px;font-weight:500;color:var(--text)}
+.table-title{font-size:14px;font-weight:500}
 .table-count{font-size:13px;color:var(--text3);font-family:var(--mono)}
 .filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .search-wrap{position:relative}
@@ -104,12 +87,11 @@ select:focus{outline:none;border-color:var(--accent)}
 .search-wrap input:focus{outline:none;border-color:var(--accent);width:240px}
 .search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3)}
 .brand-filter-select{padding:7px 28px 7px 10px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-family:var(--font);font-size:13px;color:var(--text);cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6960' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;transition:border-color 0.15s;max-width:160px}
-.brand-filter-select:hover{border-color:var(--text3)}
 .brand-filter-select:focus{outline:none;border-color:var(--accent)}
 .brand-filter-select.has-value{border-color:var(--accent);color:var(--accent);background-color:var(--accent-soft)}
-.clear-filter{padding:7px 10px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-family:var(--font);font-size:12px;color:var(--text2);cursor:pointer;transition:all 0.15s;white-space:nowrap;display:none}
-.clear-filter.visible{display:block}
-.clear-filter:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.clear-btn{padding:7px 10px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);font-family:var(--font);font-size:12px;color:var(--text2);cursor:pointer;transition:all 0.15s;display:none}
+.clear-btn.visible{display:block}
+.clear-btn:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 
 .table-container{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:auto}
 table{width:100%;border-collapse:collapse;min-width:900px}
@@ -117,21 +99,18 @@ thead{position:sticky;top:0;z-index:1}
 th{padding:11px 14px;text-align:left;font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;background:var(--surface2);border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;transition:color 0.15s}
 th:hover{color:var(--text)}
 th.sorted{color:var(--accent)}
-th .sort-ind{display:inline-block;margin-left:4px;opacity:0.5;font-size:10px}
-th.sorted .sort-ind{opacity:1}
+th .si{display:inline-block;margin-left:4px;opacity:0.5;font-size:10px}
+th.sorted .si{opacity:1}
 td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top;font-size:13.5px}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:var(--surface2)}
-
-/* Table specific cells */
-.video-desc{max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text);font-size:13px}
+.video-desc{max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
 .creator-handle{font-family:var(--mono);font-size:12px;color:var(--text2)}
 .duration-badge{font-size:11px;font-family:var(--mono);background:var(--surface2);color:var(--text2);padding:2px 6px;border-radius:6px;white-space:nowrap}
-.revenue{font-weight:600;color:var(--text);font-family:var(--mono);font-size:13px;white-space:nowrap}
+.revenue{font-weight:600;font-family:var(--mono);font-size:13px;white-space:nowrap}
 .metric{font-family:var(--mono);font-size:13px;color:var(--text2)}
-.metric.highlight{color:var(--teal);font-weight:500}
+.metric.hi{color:var(--teal);font-weight:500}
 .brand-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 8px;border-radius:20px;white-space:nowrap}
-.roas-bar{display:flex;align-items:center;gap:6px}
 .roas-pill{font-size:11.5px;font-family:var(--mono);padding:2px 8px;border-radius:20px;font-weight:500;white-space:nowrap}
 .roas-good{background:var(--green-soft);color:var(--green)}
 .roas-mid{background:var(--amber-soft);color:var(--amber)}
@@ -140,31 +119,75 @@ tr:hover td{background:var(--surface2)}
 .link-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--blue);text-decoration:none;padding:4px 8px;border-radius:6px;border:1px solid var(--blue-soft);transition:all 0.15s;white-space:nowrap}
 .link-btn:hover{background:var(--blue-soft)}
 .link-btn svg{width:10px;height:10px}
-
-/* Empty / loading */
-.empty-state{text-align:center;padding:60px 20px;color:var(--text3)}
-.empty-icon{font-size:40px;margin-bottom:12px;opacity:0.4}
-
-/* Toast */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--text);color:#fff;padding:10px 16px;border-radius:var(--r);font-size:13px;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none;z-index:999}
-.toast.show{opacity:1;transform:translateY(0)}
-
-/* Remove store */
 .remove-btn{background:none;border:none;cursor:pointer;padding:4px;border-radius:6px;color:var(--text3);transition:all 0.15s;display:flex;align-items:center}
 .remove-btn:hover{background:var(--accent-soft);color:var(--accent)}
 
-/* Responsive */
+/* Loading state */
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(247,246,243,0.85);z-index:200;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loading-overlay.show{display:flex}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:14px;color:var(--text2)}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--text);color:#fff;padding:10px 16px;border-radius:var(--r);font-size:13px;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none;z-index:999;max-width:320px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{background:var(--green)}
+.toast.error{background:#c83232}
+
+/* Delete confirm modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;align-items:center;justify-content:center}
+.modal-bg.show{display:flex}
+.modal{background:var(--surface);border-radius:var(--r-lg);padding:28px;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal h3{font-size:17px;font-weight:600;margin-bottom:8px}
+.modal p{font-size:13.5px;color:var(--text2);margin-bottom:20px;line-height:1.6}
+.modal-btns{display:flex;gap:10px;justify-content:flex-end}
+.btn{padding:8px 16px;border-radius:var(--r);font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all 0.15s}
+.btn-ghost{background:var(--surface2);color:var(--text)}
+.btn-ghost:hover{background:var(--border)}
+.btn-danger{background:var(--accent);color:#fff}
+.btn-danger:hover{background:#d43a14}
+
+/* Upload progress */
+.upload-progress{margin-top:8px;display:none}
+.upload-progress.show{display:block}
+.progress-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:4px}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.3s;width:0%}
+.progress-text{font-size:11px;color:var(--text3);text-align:center}
+
+/* Empty state */
+.empty-state{text-align:center;padding:60px 20px;color:var(--text3)}
+.empty-icon{font-size:40px;margin-bottom:12px;opacity:0.4}
+.empty-text{font-size:14px}
+
 @media(max-width:900px){
   .app{grid-template-columns:1fr}
   .sidebar{position:fixed;left:0;top:0;height:100vh;z-index:100;transform:translateX(-100%);transition:transform 0.3s;width:260px}
   .sidebar.open{transform:translateX(0)}
   .summary-grid{grid-template-columns:repeat(2,1fr)}
-  .main-header{padding:16px}
-  .table-wrap,.summary-grid{padding-left:16px;padding-right:16px}
+  .main-header,.table-wrap,.summary-grid{padding-left:16px;padding-right:16px}
 }
 </style>
 </head>
 <body>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loading-overlay">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loading-text">Memuat data...</div>
+</div>
+
+<!-- Delete confirm modal -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <h3>Hapus toko ini?</h3>
+    <p id="modal-msg">Semua data video toko ini akan dihapus permanen dari database.</p>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" onclick="closeModal()">Batal</button>
+      <button class="btn btn-danger" id="modal-confirm-btn">Hapus</button>
+    </div>
+  </div>
+</div>
 
 <div class="app">
   <!-- Sidebar -->
@@ -185,14 +208,18 @@ tr:hover td{background:var(--surface2)}
     </div>
 
     <div class="sidebar-footer">
-      <label class="upload-area" id="upload-label">
+      <label class="upload-area">
         <input type="file" id="file-input" accept=".xlsx" multiple>
         <div class="upload-icon">+</div>
         <div class="upload-title">Upload Toko Baru</div>
-        <div class="upload-sub">Drag & drop file .xlsx di sini</div>
+        <div class="upload-sub">File .xlsx dari Kalodata</div>
       </label>
-      <div class="store-limit" id="store-limit-text">5 dari 10 toko digunakan</div>
-      <div class="store-count-bar"><div class="store-count-fill" id="store-fill" style="width:50%"></div></div>
+      <div class="upload-progress" id="upload-progress">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">Mengupload...</div>
+      </div>
+      <div class="store-count-bar"><div class="store-count-fill" id="store-fill" style="width:0%"></div></div>
+      <div class="store-limit" id="store-limit-text">0 dari 10 toko</div>
     </div>
   </aside>
 
@@ -201,50 +228,32 @@ tr:hover td{background:var(--surface2)}
     <div class="main-header">
       <div class="header-left">
         <h1 id="page-title">Semua Toko</h1>
-        <p id="page-sub">Periode: 23 Mar – 21 Apr 2026 · Data Affiliate TikTok Shop</p>
+        <p id="page-sub">Data Affiliate TikTok Shop · tersimpan di Supabase</p>
       </div>
       <div class="header-right">
         <div class="sort-wrap">
           <span class="sort-label">Urutkan:</span>
-          <select id="sort-select">
-            <option value="Pendapatan(Rp)">Pendapatan</option>
-            <option value="Penjualan">Penjualan</option>
-            <option value="Ditonton">Views</option>
-            <option value="GPM(Rp)">GPM</option>
-            <option value="CPA(Rp)">CPA</option>
-            <option value="ROAS Ads">ROAS</option>
-            <option value="Konsumsi Ads(Rp)">Budget Ads</option>
+          <select id="sort-select" onchange="onSortChange(this.value)">
+            <option value="pendapatan">Pendapatan</option>
+            <option value="penjualan">Penjualan</option>
+            <option value="ditonton">Views</option>
+            <option value="gpm">GPM</option>
+            <option value="cpa">CPA</option>
+            <option value="roas">ROAS</option>
+            <option value="budget_ads">Budget Ads</option>
           </select>
           <button class="sort-dir" id="sort-dir-btn" onclick="toggleSortDir()">↓ Desc</button>
         </div>
       </div>
     </div>
 
-    <!-- Summary Cards -->
-    <div class="summary-grid" id="summary-grid">
-      <div class="stat-card">
-        <div class="stat-label">Total Pendapatan</div>
-        <div class="stat-value" id="stat-revenue">—</div>
-        <div class="stat-sub" id="stat-revenue-sub"></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Total Penjualan</div>
-        <div class="stat-value" id="stat-sales">—</div>
-        <div class="stat-sub" id="stat-sales-sub"></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Total Views</div>
-        <div class="stat-value" id="stat-views">—</div>
-        <div class="stat-sub" id="stat-views-sub"></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Avg ROAS</div>
-        <div class="stat-value" id="stat-roas">—</div>
-        <div class="stat-sub" id="stat-roas-sub"></div>
-      </div>
+    <div class="summary-grid">
+      <div class="stat-card"><div class="stat-label">Total Pendapatan</div><div class="stat-value" id="stat-revenue">—</div><div class="stat-sub" id="stat-revenue-sub"></div></div>
+      <div class="stat-card"><div class="stat-label">Total Penjualan</div><div class="stat-value" id="stat-sales">—</div><div class="stat-sub" id="stat-sales-sub"></div></div>
+      <div class="stat-card"><div class="stat-label">Total Views</div><div class="stat-value" id="stat-views">—</div><div class="stat-sub" id="stat-views-sub"></div></div>
+      <div class="stat-card"><div class="stat-label">Avg ROAS</div><div class="stat-value" id="stat-roas">—</div><div class="stat-sub" id="stat-roas-sub"></div></div>
     </div>
 
-    <!-- Table -->
     <div class="table-wrap">
       <div class="table-header">
         <div style="display:flex;align-items:center;gap:8px">
@@ -257,16 +266,14 @@ tr:hover td{background:var(--surface2)}
           </select>
           <div class="search-wrap">
             <svg class="search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input type="text" id="search-input" placeholder="Cari kreator / deskripsi..." oninput="renderTable()">
+            <input type="text" id="search-input" placeholder="Cari kreator / deskripsi..." oninput="onSearchChange()">
           </div>
-          <button class="clear-filter" id="clear-filter-btn" onclick="clearAllFilters()">✕ Reset filter</button>
+          <button class="clear-btn" id="clear-btn" onclick="clearFilters()">✕ Reset</button>
         </div>
       </div>
       <div class="table-container">
         <table>
-          <thead>
-            <tr id="table-head"></tr>
-          </thead>
+          <thead><tr id="table-head"></tr></thead>
           <tbody id="table-body"></tbody>
         </table>
       </div>
@@ -278,6 +285,38 @@ tr:hover td{background:var(--surface2)}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
+// ============================================================
+// SUPABASE CONFIG — ganti jika perlu
+// ============================================================
+const SUPABASE_URL = 'https://wotysnrzyffnliwnkmzh.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_VHnRW2KqcDOzB19fMCO9KQ_hzlc06Yk';
+const MAX_STORES = 10;
+
+// ============================================================
+// SUPABASE HELPER
+// ============================================================
+async function sbFetch(path, options={}) {
+  const res = await fetch(SUPABASE_URL + path, {
+    ...options,
+    headers: {
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': options.prefer || '',
+      ...options.headers
+    }
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.message || err.hint || `HTTP ${res.status}`);
+  }
+  if (res.status === 204) return null;
+  return res.json();
+}
+
+// ============================================================
+// STATE
+// ============================================================
 const BRAND_COLORS = [
   {bg:'#fdf0ec',text:'#c8350e',dot:'#e8441a'},
   {bg:'#e6f5f1',text:'#0a6e54',dot:'#0e9474'},
@@ -290,286 +329,393 @@ const BRAND_COLORS = [
   {bg:'#e8f0fe',text:'#1a56c4',dot:'#2870e8'},
   {bg:'#f0fbf4',text:'#1a6e42',dot:'#22915a'},
 ];
-const MAX_STORES = 10;
 
-const INITIAL_DATA = {"POSE Shoes IDN":[{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Pantesan orang umroh pada pake sandal ini. Memang senyaman itu bikin tumit gak sakit","Durasi":"48s","Handle Kreator":"michaelrendyw","Tanggal Publikasi":"2025/08/09 19:36:17","Pendapatan(Rp)":506902043.67,"Penjualan":2130,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":1483390,"GPM(Rp)":341718.66,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7536563673486216453&language=id-ID&currency=IDR&region=ID&dateRange=%5B%222026-03-23%22%2C%222026-04-21%22%5D","Link TikTok":"https://www.tiktok.com/@michaelrendyw/video/7536563673486216453"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"sendal jepit original premium pose ya, anti slip anti licin, empuk banget #sendal #sandaljepit","Durasi":"34s","Handle Kreator":"apin.ketiduran","Tanggal Publikasi":"2026/02/25 00:13:18","Pendapatan(Rp)":487528618.94,"Penjualan":3543,"Nama Produk":"POSE Traveling Sandal Jepit Anti Selip","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":2937560,"GPM(Rp)":165963.8,"CPA(Rp)":2733.01,"Rasio Views Ads":"9.45%","Konsumsi Ads(Rp)":9683060.67,"ROAS Ads":3.06,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7610480954922061077","Link TikTok":"https://www.tiktok.com/@apin.ketiduran/video/7610480954922061077"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Pantesan orang umroh pada pake sandal ini. Nyaman poll bikin tumit nggak sakit sama sekali","Durasi":"47s","Handle Kreator":"michaelrendyw","Tanggal Publikasi":"2025/08/15 16:06:44","Pendapatan(Rp)":381541359.68,"Penjualan":1732,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":1228388,"GPM(Rp)":310603.29,"CPA(Rp)":19027.8,"Rasio Views Ads":"35.38%","Konsumsi Ads(Rp)":32956157.47,"ROAS Ads":2.87,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7538736181970832645","Link TikTok":"https://www.tiktok.com/@michaelrendyw/video/7538736181970832645"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Pose Original Pose cloud bounce lentur enak buat jalan jauh #poseoriginal #sandalcewek","Durasi":"1m 9s","Handle Kreator":"padepi1","Tanggal Publikasi":"2025/11/04 13:41:36","Pendapatan(Rp)":316577564.9,"Penjualan":1672,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":957127,"GPM(Rp)":330758.16,"CPA(Rp)":54130.72,"Rasio Views Ads":">90%","Konsumsi Ads(Rp)":90506558.34,"ROAS Ads":2.8,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7568756680633175317","Link TikTok":"https://www.tiktok.com/@padepi1/video/7568756680633175317"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sandal Masa Kini, Anti Slip Anti Licin Pose #pose #poseoriginal #posesandal","Durasi":"43s","Handle Kreator":"f_shop.id","Tanggal Publikasi":"2026/02/06 01:17:53","Pendapatan(Rp)":231334738.45,"Penjualan":693,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":502806,"GPM(Rp)":460087.47,"CPA(Rp)":91756.56,"Rasio Views Ads":"86.97%","Konsumsi Ads(Rp)":63587299.13,"ROAS Ads":2.91,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7603447029620034836","Link TikTok":"https://www.tiktok.com/@f_shop.id/video/7603447029620034836"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sandal POSE Cloud Bounce Original, Lentur dan menopang tumit kaki ✨","Durasi":"31s","Handle Kreator":"richannelvt","Tanggal Publikasi":"2025/11/25 09:30:25","Pendapatan(Rp)":214961617.25,"Penjualan":1003,"Nama Produk":"POSE Cloud Bounce Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":632639,"GPM(Rp)":339785.59,"CPA(Rp)":2504.07,"Rasio Views Ads":"8.98%","Konsumsi Ads(Rp)":2511583.78,"ROAS Ads":2.44,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7576484740954377493","Link TikTok":"https://www.tiktok.com/@richannelvt/video/7576484740954377493"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"#fyppppppppppppppppppppppp","Durasi":"24s","Handle Kreator":"raaacun5","Tanggal Publikasi":"2025/11/14 11:20:28","Pendapatan(Rp)":214317397.45,"Penjualan":1200,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":681290,"GPM(Rp)":314575.87,"CPA(Rp)":53182.08,"Rasio Views Ads":">90%","Konsumsi Ads(Rp)":63818498.61,"ROAS Ads":2.68,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7572431151059455252","Link TikTok":"https://www.tiktok.com/@raaacun5/video/7572431151059455252"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"POSE rmaxpro little soft cake original, udah restock #pose #sendal #januarigajiansale","Durasi":"35s","Handle Kreator":"apin.ketiduran","Tanggal Publikasi":"2026/01/23 19:10:14","Pendapatan(Rp)":204374699.16,"Penjualan":1010,"Nama Produk":"POSE Little Soft Cake Sandal Anti Selip","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":1393655,"GPM(Rp)":146646.55,"CPA(Rp)":60523.72,"Rasio Views Ads":"79.47%","Konsumsi Ads(Rp)":61128957.07,"ROAS Ads":2.67,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7598528147331599637","Link TikTok":"https://www.tiktok.com/@apin.ketiduran/video/7598528147331599637"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Pantesan orang umroh pada pake sandal ini. Memang senyaman itu bikin tumit gak sakit","Durasi":"44s","Handle Kreator":"michaelrendyw","Tanggal Publikasi":"2026/01/21 11:26:31","Pendapatan(Rp)":173436508.23,"Penjualan":689,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":476729,"GPM(Rp)":363805.24,"CPA(Rp)":75191.77,"Rasio Views Ads":"88.98%","Konsumsi Ads(Rp)":51807127.87,"ROAS Ads":2.64,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7597666487557459221","Link TikTok":"https://www.tiktok.com/@michaelrendyw/video/7597666487557459221"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"#sendalkece #outfitideas #sendalkeren #sendalkekinian","Durasi":"17s","Handle Kreator":"ddpnsc","Tanggal Publikasi":"2026/01/14 14:17:35","Pendapatan(Rp)":140589760.14,"Penjualan":903,"Nama Produk":"POSE Cloud Bounce Cat Paw Sandal Anti Selip","Kategori Produk":"Sandal","Ditonton":645788,"GPM(Rp)":217702.65,"CPA(Rp)":52046.16,"Rasio Views Ads":">90%","Konsumsi Ads(Rp)":46997678.3,"ROAS Ads":2.39,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7595112993277447445","Link TikTok":"https://www.tiktok.com/@ddpnsc/video/7595112993277447445"}],"Porto X":[{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Rekomendasi sandal clogs yang empuk dan nyaman cocok banget guat hangout #sandalslop #clogs","Durasi":"22s","Handle Kreator":"hamazah.ds","Tanggal Publikasi":"2025/06/29 16:00:49","Pendapatan(Rp)":23944405.37,"Penjualan":67,"Nama Produk":"Porto X Sandals Gio Clogs Sendal Sport Recovery Empuk","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":133322,"GPM(Rp)":179598.31,"CPA(Rp)":147107.39,"Rasio Views Ads":"75.83%","Konsumsi Ads(Rp)":9856195.3,"ROAS Ads":1.94,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7521293639050448134","Link TikTok":"https://www.tiktok.com/@hamazah.ds/video/7521293639050448134"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"#sandalslop","Durasi":"58s","Handle Kreator":"semuakitaspill","Tanggal Publikasi":"2026/01/19 17:37:16","Pendapatan(Rp)":13432999.27,"Penjualan":36,"Nama Produk":"Porto X Sandals Jean Clogs Sandal Sport Recovery","Kategori Produk":"Selop","Ditonton":1009693,"GPM(Rp)":13304.04,"CPA(Rp)":100719.63,"Rasio Views Ads":"6.51%","Konsumsi Ads(Rp)":3625906.55,"ROAS Ads":2.96,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7597019892746833160","Link TikTok":"https://www.tiktok.com/@semuakitaspill/video/7597019892746833160"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Kalo kalian butuh sendal recovery yg bisa di mix and match, sendal Porto x solusinya","Durasi":"23s","Handle Kreator":"portox_recovery_sandal","Tanggal Publikasi":"2026/01/20 09:35:40","Pendapatan(Rp)":11012921.08,"Penjualan":35,"Nama Produk":"Porto X Sandals Gio Clogs Sendal Sport Recovery Empuk","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":159645,"GPM(Rp)":68983.81,"CPA(Rp)":124214.62,"Rasio Views Ads":"46.43%","Konsumsi Ads(Rp)":4347511.78,"ROAS Ads":1.96,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7597266865873849607","Link TikTok":"https://www.tiktok.com/@portox_recovery_sandal/video/7597266865873849607"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Penunjang outfit biar makin maksimal #sandalslop #sandalclog #sandalporto","Durasi":"54s","Handle Kreator":"abay_septiawan","Tanggal Publikasi":"2026/03/12 16:22:34","Pendapatan(Rp)":10294925.19,"Penjualan":28,"Nama Produk":"Porto X Sandals Jean Clogs Sandal Sport Recovery","Kategori Produk":"Selop","Ditonton":642951,"GPM(Rp)":16011.99,"CPA(Rp)":99051.93,"Rasio Views Ads":"8.56%","Konsumsi Ads(Rp)":2773454.12,"ROAS Ads":2.36,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7616297062522539272","Link TikTok":"https://www.tiktok.com/@abay_septiawan/video/7616297062522539272"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Kirain cuma menang gaya doang, taunya fungsinya emang se oke itu buat recovery kaki #Recovery #fyp","Durasi":"32s","Handle Kreator":"portox_recovery_sandal","Tanggal Publikasi":"2026/04/07 16:44:59","Pendapatan(Rp)":9794514.44,"Penjualan":30,"Nama Produk":"Porto X Sandals Gio Clogs Sendal Sport Recovery Empuk","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":148714,"GPM(Rp)":65861.41,"CPA(Rp)":121553.44,"Rasio Views Ads":"51.12%","Konsumsi Ads(Rp)":3646603.06,"ROAS Ads":2.15,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7625951022778682625","Link TikTok":"https://www.tiktok.com/@portox_recovery_sandal/video/7625951022778682625"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Rekomendasi Snadal Recovery Nyaman dari Porto #sandalrecovery #sandalmurah","Durasi":"30s","Handle Kreator":"a.ikmaal","Tanggal Publikasi":"2025/12/27 20:02:03","Pendapatan(Rp)":6843947.67,"Penjualan":25,"Nama Produk":"Porto X Sandals Verner Slides Sendal Slop Recovery","Kategori Produk":"Selop","Ditonton":329221,"GPM(Rp)":20788.31,"CPA(Rp)":73479.4,"Rasio Views Ads":"11.08%","Konsumsi Ads(Rp)":1836985.11,"ROAS Ads":2.98,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7588522242531773716","Link TikTok":"https://www.tiktok.com/@a.ikmaal/video/7588522242531773716"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"cari sendal recovery premium dari Porto, cek di keranjang kuning etan #portox","Durasi":"21s","Handle Kreator":"bertrandantolin","Tanggal Publikasi":"2026/03/31 15:52:45","Pendapatan(Rp)":6258196.24,"Penjualan":22,"Nama Produk":"Porto X Gio Sandal Recovery Premium Super Empuk","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":557686,"GPM(Rp)":11221.72,"CPA(Rp)":106236.61,"Rasio Views Ads":"8.71%","Konsumsi Ads(Rp)":2337205.4,"ROAS Ads":2.05,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7623339980068310293","Link TikTok":"https://www.tiktok.com/@bertrandantolin/video/7623339980068310293"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Porto X Sandals Gio Clogs Sendal Sport Recovery #fyppppp #sandal","Durasi":"30s","Handle Kreator":"outfitstylekini","Tanggal Publikasi":"2026/02/06 11:00:51","Pendapatan(Rp)":5324912.51,"Penjualan":15,"Nama Produk":"Porto X Sandals Gio Clogs Sendal Sport Recovery Empuk","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":24513,"GPM(Rp)":217228.1,"CPA(Rp)":162170.48,"Rasio Views Ads":"79.06%","Konsumsi Ads(Rp)":2432557.21,"ROAS Ads":1.75,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7603527627088874773","Link TikTok":"https://www.tiktok.com/@outfitstylekini/video/7603527627088874773"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"","Durasi":"20s","Handle Kreator":"majesticvintage0","Tanggal Publikasi":"2026/03/18 18:39:28","Pendapatan(Rp)":3397877.66,"Penjualan":13,"Nama Produk":"Porto X Sandals Gio Clogs Sendal Sport Recovery Empuk","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":16131,"GPM(Rp)":210642.72,"CPA(Rp)":110762.93,"Rasio Views Ads":"75.93%","Konsumsi Ads(Rp)":1439918.13,"ROAS Ads":1.74,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7618558850551090440","Link TikTok":"https://www.tiktok.com/@majesticvintage0/video/7618558850551090440"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sumpah nyaman bgt! Fix ini bakal jadi sendal daily gw 🥹✨ #sendal #recovery #fyp","Durasi":"20s","Handle Kreator":"kanzoutfit","Tanggal Publikasi":"2026/03/19 19:46:26","Pendapatan(Rp)":3258070.8,"Penjualan":10,"Nama Produk":"Porto X Sandals Gio Clogs Dainichi Sendal Recovery","Kategori Produk":"Selop","Ditonton":4239,"GPM(Rp)":768594.2,"CPA(Rp)":31946.89,"Rasio Views Ads":"82.94%","Konsumsi Ads(Rp)":319468.94,"ROAS Ads":8.16,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7618947199434755346","Link TikTok":"https://www.tiktok.com/@kanzoutfit/video/7618947199434755346"}],"Hijack Sandals":[{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"It's finally FLO COLLECTION DAY! You can now checkout the Flo Collection on TikTok Shop!! #hijacksandals #flo","Durasi":"20s","Handle Kreator":"hijacksandals","Tanggal Publikasi":"2025/07/23 13:46:39","Pendapatan(Rp)":12546432.29,"Penjualan":20,"Nama Produk":"Hijack Sandals Flo Sputnik","Kategori Produk":"Sepatu Mary Jane","Ditonton":44763,"GPM(Rp)":280285.78,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7530165139287411975","Link TikTok":"https://www.tiktok.com/@hijacksandals/video/7530165139287411975"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"racun sepatu buat yang kakinya lebar & gendut kaya gue! #sepatuwanita #localbrand #racuntiktok","Durasi":"1m 19s","Handle Kreator":"kexidean","Tanggal Publikasi":"2025/11/03 18:12:07","Pendapatan(Rp)":10330420.2,"Penjualan":17,"Nama Produk":"Hijack Sandals Flo Sputnik","Kategori Produk":"Sepatu Mary Jane","Ditonton":22573,"GPM(Rp)":457644.98,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7568455312806530322","Link TikTok":"https://www.tiktok.com/@kexidean/video/7568455312806530322"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"brand lokal sekarang keren-keren sih! ketemu kan sandal traveling yang kaki lebar approved #ootdhijab #localbrand","Durasi":"33s","Handle Kreator":"akunciii","Tanggal Publikasi":"2025/07/26 18:37:54","Pendapatan(Rp)":10291062.02,"Penjualan":16,"Nama Produk":"Hijack Sandals Atlas Gobi","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":98648,"GPM(Rp)":104321.04,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7531353439717264645","Link TikTok":"https://www.tiktok.com/@akunciii/video/7531353439717264645"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sepatu kerja ternyaman menurut aku, gabikin kaki bau #fyp #hijacksandals","Durasi":"44s","Handle Kreator":"naiwatulhadillaa","Tanggal Publikasi":"2025/11/06 10:42:30","Pendapatan(Rp)":8030246.18,"Penjualan":12,"Nama Produk":"Hijack Sandals Flo Blach","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":18901,"GPM(Rp)":424858.27,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7569452679911525653","Link TikTok":"https://www.tiktok.com/@naiwatulhadillaa/video/7569452679911525653"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"aakk akhirnya nyobain juga hijack yg flo sputnik!! selaluu nyamann #hijacksandals","Durasi":"27s","Handle Kreator":"salssuy","Tanggal Publikasi":"2025/10/27 20:38:47","Pendapatan(Rp)":6062303.92,"Penjualan":10,"Nama Produk":"Hijack Sandals Flo Sputnik","Kategori Produk":"Sepatu Mary Jane","Ditonton":17980,"GPM(Rp)":337169.29,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7565895428353379600","Link TikTok":"https://www.tiktok.com/@salssuy/video/7565895428353379600"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"sukaaa bgt karna dia feels nya setengah sneakers setengah flatshoes #hijackshoes #sepatuwanita","Durasi":"36s","Handle Kreator":"radisaalsa","Tanggal Publikasi":"2025/12/20 23:15:50","Pendapatan(Rp)":5483997.0,"Penjualan":8,"Nama Produk":"Hijack Sandals Flo Blach","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":13308,"GPM(Rp)":412082.73,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7585974586903121160","Link TikTok":"https://www.tiktok.com/@radisaalsa/video/7585974586903121160"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"162cm/65kg | sukak bangett outfitt iniiii #fitcheck #OOTD","Durasi":"7s","Handle Kreator":"sejauhhh","Tanggal Publikasi":"2025/09/21 16:59:55","Pendapatan(Rp)":10564829.39,"Penjualan":55,"Nama Produk":"Hijack Sandals Flo Blach","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":91283,"GPM(Rp)":115737.1,"CPA(Rp)":61814.26,"Rasio Views Ads":"67.34%","Konsumsi Ads(Rp)":3399784.24,"ROAS Ads":1.9,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7552480017276538168","Link TikTok":"https://www.tiktok.com/@sejauhhh/video/7552480017276538168"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Ga di tambah2in, tp emang di aku, ini nyaman banget #hijack #twylasputnik #lokalbrand","Durasi":"1m 2s","Handle Kreator":"toyastory_","Tanggal Publikasi":"2026/01/14 17:11:04","Pendapatan(Rp)":4783498.45,"Penjualan":8,"Nama Produk":"Hijack Sandals Flo Sputnik","Kategori Produk":"Sepatu Mary Jane","Ditonton":13434,"GPM(Rp)":356074.02,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7595157713299033351","Link TikTok":"https://www.tiktok.com/@toyastory_/video/7595157713299033351"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sepatu yang lagi rame bangett di kalangan brand lokal! #hijacksandals #sepatuflats","Durasi":"1m 46s","Handle Kreator":"moi.ohsy","Tanggal Publikasi":"2026/03/07 04:47:05","Pendapatan(Rp)":3627278.4,"Penjualan":6,"Nama Produk":"Hijack Sandals Flo Sputnik","Kategori Produk":"Sepatu Mary Jane","Ditonton":11729,"GPM(Rp)":309257.26,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7614262317743738132","Link TikTok":"https://www.tiktok.com/@moi.ohsy/video/7614262317743738132"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Rekomendasi sandal yang cocok banget dipakai umroh maupun haji #sandal #sandalumroh","Durasi":"1m 20s","Handle Kreator":"bunga_permatasari","Tanggal Publikasi":"2026/03/29 12:07:17","Pendapatan(Rp)":2978015.25,"Penjualan":7,"Nama Produk":"Hijack Sandals Alto Moor","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":5386,"GPM(Rp)":552917.8,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7622539691107044629","Link TikTok":"https://www.tiktok.com/@bunga_permatasari/video/7622539691107044629"}],"Footstep Footwear":[{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sandal slop kece kekinian anti air #sandalslop #sandalsloppria #sandalkekinian","Durasi":"20s","Handle Kreator":"alaska_qi","Tanggal Publikasi":"2026/01/23 17:35:06","Pendapatan(Rp)":59677523.17,"Penjualan":430,"Nama Produk":"Footstep Footwear Sandal Pria Slide Flux Black","Kategori Produk":"Selop","Ditonton":465578,"GPM(Rp)":128179.43,"CPA(Rp)":55352.49,"Rasio Views Ads":"71.97%","Konsumsi Ads(Rp)":23801570.66,"ROAS Ads":2.01,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7598503677099248914","Link TikTok":"https://www.tiktok.com/@alaska_qi/video/7598503677099248914"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sandal Slop Pria ✨ #affiliate #tiktok #sandal #sandalpria #fyp","Durasi":"16s","Handle Kreator":"bm.officialstore","Tanggal Publikasi":"2025/08/23 06:50:49","Pendapatan(Rp)":30022653.07,"Penjualan":215,"Nama Produk":"Footstep Footwear Sandal Pria Slide Flux Black","Kategori Produk":"Selop","Ditonton":207631,"GPM(Rp)":144596.2,"CPA(Rp)":38360.13,"Rasio Views Ads":"56.57%","Konsumsi Ads(Rp)":8247428.41,"ROAS Ads":1.79,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7541561584057945350","Link TikTok":"https://www.tiktok.com/@bm.officialstore/video/7541561584057945350"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"","Durasi":"24s","Handle Kreator":"ysfabdillah","Tanggal Publikasi":"2026/03/08 10:04:21","Pendapatan(Rp)":22299152.1,"Penjualan":106,"Nama Produk":"Sendal Cowok Footstep Octa Black Slide Sandal Pria Karet","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":196195,"GPM(Rp)":113658.11,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7614715262134127879","Link TikTok":"https://www.tiktok.com/@ysfabdillah/video/7614715262134127879"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sandal slop kece kekinian #sandalslop #sandalkekinian #sandalmurah","Durasi":"19s","Handle Kreator":"alaska_qi","Tanggal Publikasi":"2026/01/21 12:27:33","Pendapatan(Rp)":17280929.58,"Penjualan":127,"Nama Produk":"Footstep Footwear Sandal Pria Slide Flux Black","Kategori Produk":"Selop","Ditonton":138873,"GPM(Rp)":124436.93,"CPA(Rp)":67411.47,"Rasio Views Ads":"81.04%","Konsumsi Ads(Rp)":8561256.6,"ROAS Ads":1.61,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7597682251467443474","Link TikTok":"https://www.tiktok.com/@alaska_qi/video/7597682251467443474"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sepatu sneakers kasual pria #sepatu #sepatupria #footstep","Durasi":"33s","Handle Kreator":"shop.afstore.id","Tanggal Publikasi":"2026/04/03 21:17:03","Pendapatan(Rp)":15574599.48,"Penjualan":54,"Nama Produk":"Footstep Footwear Sepatu Pria Sneakers Apollo Navy","Kategori Produk":"Sepatu Kasual","Ditonton":52930,"GPM(Rp)":294249.0,"CPA(Rp)":116090.73,"Rasio Views Ads":"78.69%","Konsumsi Ads(Rp)":6268899.25,"ROAS Ads":1.95,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7624536826900106514","Link TikTok":"https://www.tiktok.com/@shop.afstore.id/video/7624536826900106514"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"","Durasi":"17s","Handle Kreator":"ysfabdillah","Tanggal Publikasi":"2025/05/16 22:19:14","Pendapatan(Rp)":13354572.4,"Penjualan":96,"Nama Produk":"Footstep Footwear Sandal Pria Slide Flux Black","Kategori Produk":"Selop","Ditonton":92661,"GPM(Rp)":144122.9,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7505063430471142662","Link TikTok":"https://www.tiktok.com/@ysfabdillah/video/7505063430471142662"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Coba cek keranjang kuning yang ada di atas👆 kalian dapat harga berapa? #racuntiktok #sandalslop","Durasi":"26s","Handle Kreator":"kiplireview","Tanggal Publikasi":"2025/10/04 08:58:15","Pendapatan(Rp)":12879976.32,"Penjualan":93,"Nama Produk":"Footstep Footwear Sandal Pria Slide Flux Black","Kategori Produk":"Selop","Ditonton":90299,"GPM(Rp)":142636.98,"CPA(Rp)":76070.46,"Rasio Views Ads":"86.72%","Konsumsi Ads(Rp)":7074552.36,"ROAS Ads":1.46,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7557180018032479496","Link TikTok":"https://www.tiktok.com/@kiplireview/video/7557180018032479496"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"duh cakep banget!! sandal kayak gini apa ya namanya? #sandalcasual #fyppppp","Durasi":"16s","Handle Kreator":"hu.manity00","Tanggal Publikasi":"2026/03/17 11:00:00","Pendapatan(Rp)":10525412.7,"Penjualan":62,"Nama Produk":"Footstep Footwear Sandal Casual Pria Giga Suede Grey","Kategori Produk":"Sandal Mule & Clog","Ditonton":160953,"GPM(Rp)":65394.32,"CPA(Rp)":58184.79,"Rasio Views Ads":"53.26%","Konsumsi Ads(Rp)":3607456.72,"ROAS Ads":2.11,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7618023629627854101","Link TikTok":"https://www.tiktok.com/@hu.manity00/video/7618023629627854101"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Sepatu Kekinian Pria FOOTSTEP Casual #sepatupria #sepatufashion #sepatucasual","Durasi":"1m 5s","Handle Kreator":"haris.pedagangkeliling","Tanggal Publikasi":"2026/03/29 11:00:00","Pendapatan(Rp)":9422180.74,"Penjualan":32,"Nama Produk":"Footstep Footwear Sepatu Pria Sneakers Apollo Army","Kategori Produk":"Sepatu Kasual","Ditonton":7123,"GPM(Rp)":1322782.64,"CPA(Rp)":22110.11,"Rasio Views Ads":"88.56%","Konsumsi Ads(Rp)":707523.42,"ROAS Ads":9.38,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7621604859707510032","Link TikTok":"https://www.tiktok.com/@haris.pedagangkeliling/video/7621604859707510032"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Rekomendasi Sandal Casual Best Seller #footstepfootwear #sandalmurah #sandalpria","Durasi":"28s","Handle Kreator":"mokomisi","Tanggal Publikasi":"2026/02/26 17:00:00","Pendapatan(Rp)":6653214.41,"Penjualan":51,"Nama Produk":"Footstep Footwear Sandal Casual Pria Giga Suede Brown","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":38966,"GPM(Rp)":170744.1,"CPA(Rp)":0.0,"Rasio Views Ads":"0%","Konsumsi Ads(Rp)":0.0,"ROAS Ads":0.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7610923270266752264","Link TikTok":"https://www.tiktok.com/@mokomisi/video/7610923270266752264"}],"Portee Goods":[{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Jelas antislip karna menggunakan outsole yang bergerigi","Durasi":"10s","Handle Kreator":"porteegoods","Tanggal Publikasi":"2025/12/22 22:18:50","Pendapatan(Rp)":33499441.49,"Penjualan":69,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":202841,"GPM(Rp)":165151.23,"CPA(Rp)":194367.66,"Rasio Views Ads":"70.92%","Konsumsi Ads(Rp)":13411368.27,"ROAS Ads":2.0,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7586702056904445204","Link TikTok":"https://www.tiktok.com/@porteegoods/video/7586702056904445204"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"nihh pantofel premium dari portee goods. #sepatupantofel #sepatuformal #porteegoods","Durasi":"39s","Handle Kreator":"heavenstyles","Tanggal Publikasi":"2026/03/06 14:00:00","Pendapatan(Rp)":26561449.41,"Penjualan":67,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":152142,"GPM(Rp)":174583.28,"CPA(Rp)":198194.09,"Rasio Views Ads":"89.11%","Konsumsi Ads(Rp)":13279004.35,"ROAS Ads":1.6,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7614005337695292690","Link TikTok":"https://www.tiktok.com/@heavenstyles/video/7614005337695292690"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"menurut kalian gimana tentang Portee Goods? #rekomendasisepatu #sepatulokal #sepatuformal","Durasi":"58s","Handle Kreator":"dimaskhrf","Tanggal Publikasi":"2024/07/05 15:34:06","Pendapatan(Rp)":21754875.12,"Penjualan":52,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":116319,"GPM(Rp)":187027.7,"CPA(Rp)":215763.13,"Rasio Views Ads":"87.70%","Konsumsi Ads(Rp)":11219682.6,"ROAS Ads":1.55,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7388067194552306949","Link TikTok":"https://www.tiktok.com/@dimaskhrf/video/7388067194552306949"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Terlepas dari banyaknya netizen yg ngehujat, gw masih tetep pake Portee Goods wkwk #sepatulokal","Durasi":"47s","Handle Kreator":"yogadityan","Tanggal Publikasi":"2025/08/09 10:54:36","Pendapatan(Rp)":20676677.27,"Penjualan":49,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":109989,"GPM(Rp)":187988.59,"CPA(Rp)":221899.02,"Rasio Views Ads":"88.90%","Konsumsi Ads(Rp)":10873051.78,"ROAS Ads":1.52,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7536429244327447816","Link TikTok":"https://www.tiktok.com/@yogadityan/video/7536429244327447816"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"😮‍💨","Durasi":"13s","Handle Kreator":"thufailz","Tanggal Publikasi":"2026/02/01 23:40:26","Pendapatan(Rp)":20657469.84,"Penjualan":48,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":107601,"GPM(Rp)":191982.14,"CPA(Rp)":200353.14,"Rasio Views Ads":"84.51%","Konsumsi Ads(Rp)":9616950.9,"ROAS Ads":1.72,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7601937581227511060","Link TikTok":"https://www.tiktok.com/@thufailz/video/7601937581227511060"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Tuh makanya checkout","Durasi":"18s","Handle Kreator":"porteegoods","Tanggal Publikasi":"2026/04/07 21:58:17","Pendapatan(Rp)":19090227.89,"Penjualan":59,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":150309,"GPM(Rp)":127006.55,"CPA(Rp)":139139.23,"Rasio Views Ads":"73.43%","Konsumsi Ads(Rp)":8209214.7,"ROAS Ads":1.86,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7626031794952867093","Link TikTok":"https://www.tiktok.com/@porteegoods/video/7626031794952867093"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Gas buruan checkout sekarang","Durasi":"20s","Handle Kreator":"porteegoods","Tanggal Publikasi":"2026/01/17 23:00:02","Pendapatan(Rp)":12814531.79,"Penjualan":26,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":61404,"GPM(Rp)":208692.13,"CPA(Rp)":258176.41,"Rasio Views Ads":"78.68%","Konsumsi Ads(Rp)":6712586.55,"ROAS Ads":1.53,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7596360900383083783","Link TikTok":"https://www.tiktok.com/@porteegoods/video/7596360900383083783"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"Yuu checkout","Durasi":"22s","Handle Kreator":"porteegoods","Tanggal Publikasi":"2026/02/04 18:08:40","Pendapatan(Rp)":11775897.17,"Penjualan":29,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":69048,"GPM(Rp)":170546.54,"CPA(Rp)":190489.4,"Rasio Views Ads":"74.20%","Konsumsi Ads(Rp)":5524192.52,"ROAS Ads":1.71,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7602965347209071893","Link TikTok":"https://www.tiktok.com/@porteegoods/video/7602965347209071893"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"cakeup pol deh sandal ini #sandaloutdoor #sandalwanita #sandalhiking","Durasi":"21s","Handle Kreator":"bykamilaaa","Tanggal Publikasi":"2026/03/26 13:00:18","Pendapatan(Rp)":9573743.36,"Penjualan":25,"Nama Produk":"Sandal Outdoor Wanita Portee Everest","Kategori Produk":"Sandal & Sandal Jepit","Ditonton":133644,"GPM(Rp)":71636.16,"CPA(Rp)":185967.1,"Rasio Views Ads":"60.77%","Konsumsi Ads(Rp)":4649177.55,"ROAS Ads":1.65,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7621440116329925908","Link TikTok":"https://www.tiktok.com/@bykamilaaa/video/7621440116329925908"},{"Date Range":"2026-03-23~2026-04-21","Deskripsi Video":"alternatif docmart ganteng","Durasi":"28s","Handle Kreator":"approvedbyerprads","Tanggal Publikasi":"2026/03/24 12:27:49","Pendapatan(Rp)":9080544.93,"Penjualan":15,"Nama Produk":"Sepatu Boots Pria Portee OG Derby Formal Looks Casual Feels","Kategori Produk":"Oxford","Ditonton":49156,"GPM(Rp)":184729.13,"CPA(Rp)":155012.8,"Rasio Views Ads":"63.16%","Konsumsi Ads(Rp)":2325191.99,"ROAS Ads":2.12,"Link Kalodata":"https://www.kalodata.com/video/detail?id=7620689558912486677","Link TikTok":"https://www.tiktok.com/@approvedbyerprads/video/7620689558912486677"}]};
-
-let storeData = {...INITIAL_DATA};
+let allRows = [];       // all rows from DB
+let brands = [];        // unique brand names
 let activeBrand = 'ALL';
-let sortKey = 'Pendapatan(Rp)';
-let sortDir = 'desc';
-let sortedColumn = null;
 let brandFilter = '';
+let searchVal = '';
+let sortKey = 'pendapatan';
+let sortDir = 'desc';
+let pendingDeleteBrand = null;
 
-const fmtRp = n => {
-  if(!n||n===0)return '—';
-  if(n>=1e9)return 'Rp '+( n/1e9).toFixed(1)+'M';
-  if(n>=1e6)return 'Rp '+(n/1e6).toFixed(1)+'jt';
-  if(n>=1e3)return 'Rp '+(n/1e3).toFixed(0)+'rb';
-  return 'Rp '+n.toFixed(0);
-};
-const fmtNum = n => {
-  if(n>=1e6)return (n/1e6).toFixed(1)+'M';
-  if(n>=1e3)return (n/1e3).toFixed(0)+'K';
-  return n.toString();
-};
-const fmtRoas = n => n===0?null:n.toFixed(2)+'x';
+// ============================================================
+// INIT
+// ============================================================
+async function init() {
+  showLoading('Memuat data dari Supabase...');
+  try {
+    await loadAllData();
+  } catch(e) {
+    showToast('Gagal memuat data: ' + e.message, 'error');
+  }
+  hideLoading();
+}
 
-function getBrandColor(idx){return BRAND_COLORS[idx%BRAND_COLORS.length]}
+async function loadAllData() {
+  const data = await sbFetch('/rest/v1/videos?select=*&order=pendapatan.desc&limit=5000');
+  allRows = data || [];
+  brands = [...new Set(allRows.map(r=>r.brand).filter(Boolean))].sort();
+  renderSidebar();
+  renderSummary();
+  renderTable();
+  updateBrandFilterDropdown();
+}
 
-function getBrandNames(){return Object.keys(storeData)}
+// ============================================================
+// BRAND COLORS
+// ============================================================
+function getBrandColor(brand) {
+  const idx = brands.indexOf(brand);
+  return BRAND_COLORS[idx >= 0 ? idx % BRAND_COLORS.length : 0];
+}
 
-function renderSidebar(){
-  const brands = getBrandNames();
+// ============================================================
+// SIDEBAR
+// ============================================================
+function renderSidebar() {
+  const totalVideos = allRows.length;
   let html = `<button class="brand-btn all-btn ${activeBrand==='ALL'?'active':''}" onclick="selectBrand('ALL')">
     <span class="brand-dot" style="background:${activeBrand==='ALL'?'#e8441a':'#9e9d96'}"></span>
-    <span class="brand-name">Semua Toko</span>
-    <span class="brand-count">${brands.reduce((a,b)=>a+storeData[b].length,0)}</span>
+    <span class="brand-name-label">Semua Toko</span>
+    <span class="brand-count">${totalVideos}</span>
   </button>`;
-  brands.forEach((b,i)=>{
-    const c = getBrandColor(i);
-    const isActive = activeBrand===b;
-    html+=`<div style="display:flex;align-items:center">
-      <button class="brand-btn ${isActive?'active':''}" onclick="selectBrand('${b}')" style="flex:1;${isActive?`background:${c.bg}`:''}" >
+
+  brands.forEach(b => {
+    const c = getBrandColor(b);
+    const count = allRows.filter(r=>r.brand===b).length;
+    const isActive = activeBrand === b;
+    html += `<div style="display:flex;align-items:center">
+      <button class="brand-btn ${isActive?'active':''}" onclick="selectBrand('${b.replace(/'/g,"\\'")}'))" style="flex:1${isActive?`;background:${c.bg}`:''}">
         <span class="brand-dot" style="background:${c.dot}"></span>
-        <span class="brand-name" style="${isActive?`color:${c.text}`:''}">  ${b}</span>
-        <span class="brand-count">${storeData[b].length}</span>
+        <span class="brand-name-label" style="${isActive?`color:${c.text}`:''}"> ${b}</span>
+        <span class="brand-count">${count}</span>
       </button>
-      <button class="remove-btn" onclick="removeBrand('${b}')" title="Hapus toko">
+      <button class="remove-btn" onclick="confirmDelete('${b.replace(/'/g,"\\'")}'))" title="Hapus toko">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>`;
   });
-  document.getElementById('brand-list').innerHTML=html;
-  const count = brands.length;
-  const pct = (count/MAX_STORES*100).toFixed(0);
-  document.getElementById('store-limit-text').textContent=`${count} dari ${MAX_STORES} toko digunakan`;
-  document.getElementById('store-fill').style.width=pct+'%';
-  updateBrandFilterDropdown();
+
+  document.getElementById('brand-list').innerHTML = html;
+  const pct = Math.min(100, (brands.length / MAX_STORES * 100)).toFixed(0);
+  document.getElementById('store-fill').style.width = pct + '%';
+  document.getElementById('store-limit-text').textContent = `${brands.length} dari ${MAX_STORES} toko`;
 }
 
-function selectBrand(brand){
-  activeBrand=brand;
+function selectBrand(brand) {
+  activeBrand = brand;
+  brandFilter = '';
+  document.getElementById('brand-filter-select').value = '';
+  document.getElementById('brand-filter-select').className = 'brand-filter-select';
   renderSidebar();
-  renderHeader();
   renderSummary();
   renderTable();
+  updateClearBtn();
 }
 
-function removeBrand(brand){
-  if(!confirm(`Hapus toko "${brand}" dari dashboard?`))return;
-  delete storeData[brand];
-  if(activeBrand===brand)activeBrand='ALL';
-  renderSidebar();renderHeader();renderSummary();renderTable();
-  showToast(`Toko "${brand}" dihapus`);
+// ============================================================
+// SUMMARY
+// ============================================================
+function getFilteredRows() {
+  let rows = activeBrand === 'ALL' ? allRows : allRows.filter(r=>r.brand===activeBrand);
+  if (brandFilter) rows = rows.filter(r=>r.brand===brandFilter);
+  if (searchVal) rows = rows.filter(r=>
+    (r.kreator||'').toLowerCase().includes(searchVal) ||
+    (r.deskripsi||'').toLowerCase().includes(searchVal) ||
+    (r.nama_produk||'').toLowerCase().includes(searchVal)
+  );
+  return rows;
 }
 
-function renderHeader(){
-  const t = activeBrand==='ALL'?'Semua Toko':activeBrand;
-  document.getElementById('page-title').textContent=t;
+function renderSummary() {
+  const rows = activeBrand === 'ALL' ? allRows : allRows.filter(r=>r.brand===activeBrand);
+  const rev = rows.reduce((a,r)=>a+(r.pendapatan||0),0);
+  const sales = rows.reduce((a,r)=>a+(r.penjualan||0),0);
+  const views = rows.reduce((a,r)=>a+(r.ditonton||0),0);
+  const roasRows = rows.filter(r=>r.roas>0);
+  const avgRoas = roasRows.length ? roasRows.reduce((a,r)=>a+r.roas,0)/roasRows.length : 0;
+  document.getElementById('stat-revenue').textContent = fmtRp(rev);
+  document.getElementById('stat-revenue-sub').textContent = `dari ${rows.length} video`;
+  document.getElementById('stat-sales').textContent = fmtNum(sales);
+  document.getElementById('stat-sales-sub').textContent = 'unit terjual';
+  document.getElementById('stat-views').textContent = fmtNum(views);
+  document.getElementById('stat-views-sub').textContent = 'total views';
+  document.getElementById('stat-roas').textContent = avgRoas ? avgRoas.toFixed(2)+'x' : '—';
+  document.getElementById('stat-roas-sub').textContent = roasRows.length + ' video beriklan';
 }
 
-function getActiveData(){
-  if(activeBrand==='ALL'){
-    return Object.entries(storeData).flatMap(([brand,rows])=>rows.map(r=>({...r,_brand:brand})));
-  }
-  return (storeData[activeBrand]||[]).map(r=>({...r,_brand:activeBrand}));
-}
-
-function renderSummary(){
-  const rows = getActiveData();
-  const totalRev = rows.reduce((a,r)=>a+(r['Pendapatan(Rp)']||0),0);
-  const totalSales = rows.reduce((a,r)=>a+(r['Penjualan']||0),0);
-  const totalViews = rows.reduce((a,r)=>a+(r['Ditonton']||0),0);
-  const roasRows = rows.filter(r=>r['ROAS Ads']>0);
-  const avgRoas = roasRows.length?roasRows.reduce((a,r)=>a+r['ROAS Ads'],0)/roasRows.length:0;
-  const brands = getBrandNames();
-  document.getElementById('stat-revenue').textContent=fmtRp(totalRev);
-  document.getElementById('stat-revenue-sub').textContent=`dari ${rows.length} video`;
-  document.getElementById('stat-sales').textContent=fmtNum(totalSales);
-  document.getElementById('stat-sales-sub').textContent='unit terjual';
-  document.getElementById('stat-views').textContent=fmtNum(totalViews);
-  document.getElementById('stat-views-sub').textContent='total views';
-  document.getElementById('stat-roas').textContent=avgRoas?avgRoas.toFixed(2)+'x':'—';
-  document.getElementById('stat-roas-sub').textContent=roasRows.length+' video beriklan';
-}
-
-function getBrandIdx(brand){return getBrandNames().indexOf(brand)}
-
+// ============================================================
+// TABLE
+// ============================================================
 const COLS = [
-  {key:'_brand',label:'Toko',w:'120px'},
-  {key:'Deskripsi Video',label:'Deskripsi',w:'200px'},
-  {key:'Handle Kreator',label:'Kreator',w:'130px'},
-  {key:'Durasi',label:'Durasi',w:'70px'},
-  {key:'Pendapatan(Rp)',label:'Pendapatan',w:'110px',numeric:true},
-  {key:'Penjualan',label:'Penjualan',w:'80px',numeric:true},
-  {key:'Ditonton',label:'Views',w:'80px',numeric:true},
-  {key:'GPM(Rp)',label:'GPM',w:'100px',numeric:true},
-  {key:'CPA(Rp)',label:'CPA',w:'90px',numeric:true},
-  {key:'ROAS Ads',label:'ROAS',w:'80px',numeric:true},
-  {key:'Rasio Views Ads',label:'Rasio Ads',w:'85px'},
-  {key:'_links',label:'Link',w:'100px'},
+  {key:'brand',label:'Toko'},
+  {key:'deskripsi',label:'Deskripsi'},
+  {key:'kreator',label:'Kreator'},
+  {key:'durasi',label:'Durasi'},
+  {key:'pendapatan',label:'Pendapatan',num:true},
+  {key:'penjualan',label:'Penjualan',num:true},
+  {key:'ditonton',label:'Views',num:true},
+  {key:'gpm',label:'GPM',num:true},
+  {key:'cpa',label:'CPA',num:true},
+  {key:'roas',label:'ROAS',num:true},
+  {key:'rasio_ads',label:'Rasio Ads'},
+  {key:'_link',label:'Link'},
 ];
 
-function renderTableHead(){
-  const head=document.getElementById('table-head');
-  head.innerHTML=COLS.map(c=>{
-    const isSorted=c.key===sortKey;
-    const ind=isSorted?(sortDir==='desc'?'↓':'↑'):'↕';
-    const clickable=c.numeric||['Handle Kreator','Durasi','_brand'].includes(c.key);
-    return `<th style="width:${c.w}" class="${isSorted?'sorted':''}" onclick="${clickable?`sortBy('${c.key}')`:''}">
-      ${c.label}${clickable?`<span class="sort-ind">${ind}</span>`:''}
-    </th>`;
+function renderTable() {
+  // Head
+  document.getElementById('table-head').innerHTML = COLS.map(c => {
+    const sortable = c.num || ['kreator','durasi','brand'].includes(c.key);
+    const sorted = c.key === sortKey;
+    return `<th class="${sorted?'sorted':''}" ${sortable?`onclick="sortBy('${c.key}')"`:''}>${c.label}${sortable?`<span class="si">${sorted?(sortDir==='desc'?'↓':'↑'):'↕'}</span>`:''}</th>`;
   }).join('');
-}
 
-function sortBy(key){
-  if(sortKey===key){sortDir=sortDir==='desc'?'asc':'desc';}
-  else{sortKey=key;sortDir='desc';}
-  document.getElementById('sort-select').value=key;
-  renderTableHead();
-  renderTableRows();
-}
-
-function toggleSortDir(){
-  sortDir=sortDir==='desc'?'asc':'desc';
-  document.getElementById('sort-dir-btn').textContent=(sortDir==='desc'?'↓ Desc':'↑ Asc');
-  renderTableRows();
-}
-
-function renderTable(){
-  renderTableHead();
-  renderTableRows();
-}
-
-function updateBrandFilterDropdown(){
-  const sel=document.getElementById('brand-filter-select');
-  if(!sel)return;
-  const brands=getBrandNames();
-  const prev=sel.value;
-  sel.innerHTML='<option value="">Semua Brand</option>'+brands.map((b,i)=>{
-    const c=getBrandColor(i);
-    return `<option value="${b}">${b}</option>`;
-  }).join('');
-  // restore previous selection if still valid
-  if(prev&&brands.includes(prev))sel.value=prev;
-  else{sel.value='';brandFilter='';}
-  sel.className='brand-filter-select'+(sel.value?' has-value':'');
-  updateClearBtn();
-}
-
-function onBrandFilterChange(){
-  const sel=document.getElementById('brand-filter-select');
-  brandFilter=sel.value;
-  sel.className='brand-filter-select'+(brandFilter?' has-value':'');
-  updateClearBtn();
-  renderSummary();
-  renderTable();
-}
-
-function clearAllFilters(){
-  brandFilter='';
-  document.getElementById('brand-filter-select').value='';
-  document.getElementById('brand-filter-select').className='brand-filter-select';
-  document.getElementById('search-input').value='';
-  updateClearBtn();
-  renderSummary();
-  renderTable();
-}
-
-function updateClearBtn(){
-  const hasFilter=brandFilter||document.getElementById('search-input').value;
-  const btn=document.getElementById('clear-filter-btn');
-  if(btn)btn.className='clear-filter'+(hasFilter?' visible':'');
-}
-
-
-function renderTableRows(){
-  const search=(document.getElementById('search-input').value||'').toLowerCase();
-  updateClearBtn();
-  let rows=getActiveData();
-  if(brandFilter)rows=rows.filter(r=>r._brand===brandFilter);
-  if(search)rows=rows.filter(r=>(r['Handle Kreator']||'').toLowerCase().includes(search)||(r['Deskripsi Video']||'').toLowerCase().includes(search)||(r['Nama Produk']||'').toLowerCase().includes(search));
-  rows.sort((a,b)=>{
-    let va=a[sortKey]??0,vb=b[sortKey]??0;
-    if(typeof va==='string')va=va.toLowerCase(),vb=String(vb).toLowerCase();
-    if(sortDir==='desc')return va>vb?-1:va<vb?1:0;
-    return va<vb?-1:va>vb?1:0;
+  // Rows
+  let rows = getFilteredRows();
+  rows = [...rows].sort((a,b) => {
+    let va = a[sortKey] ?? 0, vb = b[sortKey] ?? 0;
+    if (typeof va === 'string') { va = va.toLowerCase(); vb = String(vb).toLowerCase(); }
+    return sortDir === 'desc' ? (va > vb ? -1 : va < vb ? 1 : 0) : (va < vb ? -1 : va > vb ? 1 : 0);
   });
-  document.getElementById('row-count').textContent=rows.length+' video';
-  const tbody=document.getElementById('table-body');
-  if(!rows.length){tbody.innerHTML=`<tr><td colspan="${COLS.length}" style="text-align:center;padding:48px 20px;color:var(--text3)">Tidak ada data ditemukan</td></tr>`;return;}
-  tbody.innerHTML=rows.map(r=>{
-    const bidx=getBrandIdx(r._brand);
-    const bc=getBrandColor(bidx);
-    const roas=r['ROAS Ads'];
-    const roasCls=roas===0?'roas-none':roas>=3?'roas-good':roas>=2?'roas-mid':'roas-low';
-    const roasLabel=roas===0?'Organik':fmtRoas(roas);
-    const desc=(r['Deskripsi Video']||'—');
+
+  document.getElementById('row-count').textContent = rows.length + ' video';
+
+  if (!rows.length) {
+    document.getElementById('table-body').innerHTML = `<tr><td colspan="${COLS.length}"><div class="empty-state"><div class="empty-icon">📭</div><div class="empty-text">${allRows.length===0?'Belum ada data. Upload file .xlsx untuk mulai.':'Tidak ada data ditemukan.'}</div></div></td></tr>`;
+    return;
+  }
+
+  document.getElementById('table-body').innerHTML = rows.map(r => {
+    const c = getBrandColor(r.brand);
+    const roas = r.roas || 0;
+    const roasCls = roas===0?'roas-none':roas>=3?'roas-good':roas>=2?'roas-mid':'roas-low';
+    const roasLabel = roas===0?'Organik':roas.toFixed(2)+'x';
+    const desc = r.deskripsi || '';
     return `<tr>
-      <td><span class="brand-tag" style="background:${bc.bg};color:${bc.text}">${r._brand}</span></td>
+      <td><span class="brand-tag" style="background:${c.bg};color:${c.text}">${r.brand}</span></td>
       <td><div class="video-desc" title="${desc.replace(/"/g,'&quot;')}">${desc||'<span style="color:var(--text3)">—</span>'}</div></td>
-      <td><span class="creator-handle">@${r['Handle Kreator']||'—'}</span></td>
-      <td><span class="duration-badge">${r['Durasi']||'—'}</span></td>
-      <td><span class="revenue">${fmtRp(r['Pendapatan(Rp)'])}</span></td>
-      <td><span class="metric highlight">${(r['Penjualan']||0).toLocaleString()}</span></td>
-      <td><span class="metric">${fmtNum(r['Ditonton']||0)}</span></td>
-      <td><span class="metric">${fmtRp(r['GPM(Rp)'])}</span></td>
-      <td><span class="metric">${r['CPA(Rp)']>0?fmtRp(r['CPA(Rp)']):'-'}</span></td>
+      <td><span class="creator-handle">@${r.kreator||'—'}</span></td>
+      <td><span class="duration-badge">${r.durasi||'—'}</span></td>
+      <td><span class="revenue">${fmtRp(r.pendapatan)}</span></td>
+      <td><span class="metric hi">${(r.penjualan||0).toLocaleString()}</span></td>
+      <td><span class="metric">${fmtNum(r.ditonton||0)}</span></td>
+      <td><span class="metric">${fmtRp(r.gpm)}</span></td>
+      <td><span class="metric">${r.cpa>0?fmtRp(r.cpa):'-'}</span></td>
       <td><span class="roas-pill ${roasCls}">${roasLabel}</span></td>
-      <td><span class="metric">${r['Rasio Views Ads']||'—'}</span></td>
-      <td style="white-space:nowrap">
-        ${r['Link TikTok']?`<a href="${r['Link TikTok']}" target="_blank" class="link-btn">TikTok<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>`:''}
-      </td>
+      <td><span class="metric">${r.rasio_ads||'—'}</span></td>
+      <td>${r.link_tiktok?`<a href="${r.link_tiktok}" target="_blank" class="link-btn">TikTok<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>`:''}</td>
     </tr>`;
   }).join('');
 }
 
-// Upload handler
-document.getElementById('sort-select').addEventListener('change',e=>{sortKey=e.target.value;renderTableHead();renderTableRows();});
-document.getElementById('file-input').addEventListener('change',e=>{
-  const files=[...e.target.files];
-  if(!files.length)return;
-  const brands=getBrandNames();
-  if(brands.length+files.length>MAX_STORES){showToast(`Maksimal ${MAX_STORES} toko. Hapus beberapa toko dulu.`);e.target.value='';return;}
-  let loaded=0;
-  files.forEach(file=>{
-    const reader=new FileReader();
-    reader.onload=ev=>{
-      try{
-        const wb=XLSX.read(ev.target.result,{type:'array'});
-        let brandName=file.name.replace(/\.[^/.]+$/,'').replace(/\d+__\d+__/,'').replace(/_/g,' ').trim();
-        // Try to get brand name from Intro sheet
-        if(wb.SheetNames.includes('Intro')){
-          const intro=XLSX.utils.sheet_to_json(wb.Sheets['Intro']);
-          if(intro[0]&&intro[0]['Toko'])brandName=intro[0]['Toko'];
-        }
-        const sheet=wb.Sheets[wb.SheetNames.includes('LIST_VIDEO')?'LIST_VIDEO':wb.SheetNames[0]];
-        const rows=XLSX.utils.sheet_to_json(sheet);
-        storeData[brandName]=rows.map(r=>{
-          ['Pendapatan(Rp)','Penjualan','Ditonton','GPM(Rp)','CPA(Rp)','Konsumsi Ads(Rp)','ROAS Ads'].forEach(k=>{
-            if(r[k]!==undefined)r[k]=parseFloat(r[k])||0;
-          });
-          return r;
-        });
-        showToast(`Toko "${brandName}" berhasil ditambahkan!`);
-      }catch(err){showToast('Gagal membaca file: '+file.name);}
-      loaded++;
-      if(loaded===files.length){renderSidebar();renderHeader();renderSummary();renderTable();}
-    };
-    reader.readAsArrayBuffer(file);
-  });
-  e.target.value='';
-});
-
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+// ============================================================
+// FILTERS & SORT
+// ============================================================
+function updateBrandFilterDropdown() {
+  const sel = document.getElementById('brand-filter-select');
+  sel.innerHTML = '<option value="">Semua Brand</option>' + brands.map(b => `<option value="${b}">${b}</option>`).join('');
+  if (brandFilter && brands.includes(brandFilter)) sel.value = brandFilter;
 }
 
-// Init
-renderSidebar();renderHeader();renderSummary();renderTable();
+function onBrandFilterChange() {
+  const sel = document.getElementById('brand-filter-select');
+  brandFilter = sel.value;
+  sel.className = 'brand-filter-select' + (brandFilter ? ' has-value' : '');
+  updateClearBtn();
+  renderSummary();
+  renderTable();
+}
+
+function onSearchChange() {
+  searchVal = document.getElementById('search-input').value.toLowerCase();
+  updateClearBtn();
+  renderTable();
+}
+
+function clearFilters() {
+  brandFilter = ''; searchVal = '';
+  document.getElementById('brand-filter-select').value = '';
+  document.getElementById('brand-filter-select').className = 'brand-filter-select';
+  document.getElementById('search-input').value = '';
+  updateClearBtn();
+  renderTable();
+}
+
+function updateClearBtn() {
+  const has = brandFilter || searchVal;
+  document.getElementById('clear-btn').className = 'clear-btn' + (has ? ' visible' : '');
+}
+
+function sortBy(key) {
+  if (sortKey === key) sortDir = sortDir==='desc'?'asc':'desc';
+  else { sortKey = key; sortDir = 'desc'; }
+  document.getElementById('sort-select').value = key;
+  document.getElementById('sort-dir-btn').textContent = sortDir==='desc'?'↓ Desc':'↑ Asc';
+  renderTable();
+}
+
+function onSortChange(val) { sortBy(val); }
+
+function toggleSortDir() {
+  sortDir = sortDir==='desc'?'asc':'desc';
+  document.getElementById('sort-dir-btn').textContent = sortDir==='desc'?'↓ Desc':'↑ Asc';
+  renderTable();
+}
+
+// ============================================================
+// UPLOAD
+// ============================================================
+document.getElementById('file-input').addEventListener('change', async e => {
+  const files = [...e.target.files];
+  e.target.value = '';
+  if (!files.length) return;
+  if (brands.length >= MAX_STORES) { showToast(`Maksimal ${MAX_STORES} toko. Hapus dulu salah satu.`, 'error'); return; }
+
+  showProgress(0, `Memproses ${files.length} file...`);
+  let done = 0;
+
+  for (const file of files) {
+    try {
+      showProgress(Math.round(done/files.length*100), `Mengupload ${file.name}...`);
+      const brandName = guessBrandName(file.name);
+      const rows = await readXlsx(file);
+      const records = rows.map(r => ({
+        brand: brandName,
+        deskripsi: r['Deskripsi Video'] || '',
+        kreator: r['Handle Kreator'] || '',
+        durasi: r['Durasi'] || '',
+        pendapatan: parseFloat(r['Pendapatan(Rp)']) || 0,
+        penjualan: parseInt(r['Penjualan']) || 0,
+        ditonton: parseInt(r['Ditonton']) || 0,
+        gpm: parseFloat(r['GPM(Rp)']) || 0,
+        cpa: parseFloat(r['CPA(Rp)']) || 0,
+        roas: parseFloat(r['ROAS Ads']) || 0,
+        rasio_ads: String(r['Rasio Views Ads'] || ''),
+        budget_ads: parseFloat(r['Konsumsi Ads(Rp)']) || 0,
+        link_tiktok: r['Link TikTok'] || '',
+        nama_produk: r['Nama Produk'] || '',
+        tanggal_publikasi: String(r['Tanggal Publikasi'] || ''),
+      }));
+
+      // Delete old data for this brand first, then insert new
+      await sbFetch(`/rest/v1/videos?brand=eq.${encodeURIComponent(brandName)}`, { method:'DELETE', prefer:'return=minimal' });
+      // Insert in batches of 200
+      for (let i=0; i<records.length; i+=200) {
+        await sbFetch('/rest/v1/videos', {
+          method: 'POST',
+          prefer: 'return=minimal',
+          body: JSON.stringify(records.slice(i, i+200))
+        });
+      }
+      showToast(`✓ ${brandName} berhasil diupload (${records.length} video)`, 'success');
+    } catch(err) {
+      showToast(`Gagal upload ${file.name}: ${err.message}`, 'error');
+    }
+    done++;
+  }
+
+  hideProgress();
+  showLoading('Menyegarkan data...');
+  await loadAllData();
+  hideLoading();
+});
+
+function guessBrandName(filename) {
+  let name = filename.replace(/\.xlsx$/i, '');
+  name = name.replace(/^\d+__\d+__/, '');
+  name = name.replace(/___L\d+D___.*$/, '').replace(/__L\d+D__.*$/, '');
+  return name.replace(/_/g,' ').trim() || filename.replace(/\.xlsx$/i,'');
+}
+
+function readXlsx(file) {
+  return new Promise((res, rej) => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      try {
+        const wb = XLSX.read(ev.target.result, {type:'array'});
+        const sh = wb.SheetNames.includes('LIST_VIDEO') ? 'LIST_VIDEO' : wb.SheetNames[0];
+        const rows = XLSX.utils.sheet_to_json(wb.Sheets[sh], {defval:''});
+        if (!rows.length) throw new Error('Sheet kosong');
+        res(rows);
+      } catch(e) { rej(e); }
+    };
+    reader.onerror = () => rej(new Error('Gagal baca file'));
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+// ============================================================
+// DELETE BRAND
+// ============================================================
+function confirmDelete(brand) {
+  pendingDeleteBrand = brand;
+  document.getElementById('modal-msg').textContent = `Semua data video toko "${brand}" akan dihapus permanen dari database.`;
+  document.getElementById('modal-bg').classList.add('show');
+  document.getElementById('modal-confirm-btn').onclick = async () => {
+    closeModal();
+    showLoading(`Menghapus toko "${brand}"...`);
+    try {
+      await sbFetch(`/rest/v1/videos?brand=eq.${encodeURIComponent(brand)}`, { method:'DELETE', prefer:'return=minimal' });
+      if (activeBrand === brand) activeBrand = 'ALL';
+      await loadAllData();
+      showToast(`Toko "${brand}" berhasil dihapus`, 'success');
+    } catch(e) {
+      showToast('Gagal hapus: ' + e.message, 'error');
+    }
+    hideLoading();
+  };
+}
+
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('show');
+  pendingDeleteBrand = null;
+}
+
+// ============================================================
+// UTILS
+// ============================================================
+function fmtRp(n) {
+  if (!n || n===0) return '—';
+  if (n>=1e9) return 'Rp '+(n/1e9).toFixed(1)+'M';
+  if (n>=1e6) return 'Rp '+(n/1e6).toFixed(1)+'jt';
+  if (n>=1e3) return 'Rp '+(n/1e3).toFixed(0)+'rb';
+  return 'Rp '+n.toFixed(0);
+}
+function fmtNum(n) {
+  if (n>=1e6) return (n/1e6).toFixed(1)+'M';
+  if (n>=1e3) return (n/1e3).toFixed(0)+'K';
+  return String(n||0);
+}
+function showLoading(txt='Memuat...') {
+  document.getElementById('loading-text').textContent = txt;
+  document.getElementById('loading-overlay').classList.add('show');
+}
+function hideLoading() { document.getElementById('loading-overlay').classList.remove('show'); }
+function showProgress(pct, txt) {
+  const el = document.getElementById('upload-progress');
+  el.classList.add('show');
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = txt;
+}
+function hideProgress() { document.getElementById('upload-progress').classList.remove('show'); }
+
+let toastTimer;
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (type ? ' '+type : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ t.className='toast'; }, 3500);
+}
+
+// Close modal on bg click
+document.getElementById('modal-bg').addEventListener('click', e => { if(e.target===e.currentTarget) closeModal(); });
+
+// ============================================================
+// START
+// ============================================================
+init();
 </script>
 </body>
 </html>
